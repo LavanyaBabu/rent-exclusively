@@ -26,7 +26,7 @@ interface PromotionEmailInput {
   priceTo?: number;
 }
 
-export const extendGraphqlSchema = graphql.extend({
+export const extendGraphqlSchema = graphQLSchemaExtension<Context>({
   typeDefs: `
     type Mutation {
       """ Sync cloudinary images """
