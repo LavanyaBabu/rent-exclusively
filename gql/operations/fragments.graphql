@@ -1,0 +1,71 @@
+fragment FloorPlanFields on FloorPlan {
+  __typename
+  id
+  bathrooms
+  bedrooms
+  floorPlanImage
+  maxPrice
+  minPrice
+  name
+  title
+  squareFootage
+  squareFootageMax
+  unitsCount
+}
+
+fragment ApartmentImageFields on ApartmentImage {
+  id
+  apartment {
+    id
+  }
+  default
+  url
+  type
+  cloudinaryImage {
+    publicUrlTransformed
+  }
+}
+
+fragment UserFields on User {
+  id
+  email
+  firstName
+  lastName
+  phone
+  fullName
+  role {
+    id
+    name
+    canManageUsers
+    canManageLeads
+    canManageContent
+  }
+}
+
+fragment EnquiryFields on Enquiry {
+  id
+  message
+  preferredTime
+  assignedTo {
+    ...UserFields
+  }
+  user {
+    ...UserFields
+  }
+  apartment {
+    id
+    name
+  }
+  createdAt
+  updatedAt
+}
+
+fragment ApartmentFields on Apartment {
+  id
+  area
+  city
+  name
+  street
+  unitsCount
+  minPrice
+}

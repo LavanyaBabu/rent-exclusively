@@ -1,0 +1,105 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="&display=swap" rel="stylesheet" />
+    <title>Email</title>
+    <style>
+      @font-face { font-family: BrittanySignature; src: url("https://rentexclusively.com/fonts/BrittanySignature.ttf"); } @font-face {
+      font-family: "Rosario"; src: url("https://rentexclusively.com/fonts/Rosario-Regular.ttf"); } .apartment { padding: 8px; }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0; font-size: 16px; background-color: #fff">
+    <div
+      class="container"
+      style="max-width: 600px; width: 100%; margin: 0 auto; place-items: center; border: 1px solid #333; padding: 16px; font-family: 'Rosario',Garamond, serif, system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif; background-color: #fff !important"
+    >
+      <style>
+        @font-face { font-family: BrittanySignature; src: url("https://rentexclusively.com/fonts/BrittanySignature.ttf"); } @font-face {
+        font-family: "Rosario"; src: url("https://rentexclusively.com/fonts/Rosario-Regular.ttf"); } .apartment { padding: 8px; }
+      </style>
+      <img
+        class="logo"
+        src="https://rentexclusively.com/logo.png"
+        alt
+        style="display: block; margin: 0 auto; width: 240px; margin-bottom: 12px;"
+        width="240"
+      />
+      <img class="banner" src="https://rentexclusively.com/email-banner.png" alt style="display: block; margin: 0 auto; width: 100%;" />
+      <div class="content" style="display: block; width: 100%;">
+        <h1
+          class="welcome"
+          style="font-family: 'BrittanySignature', system-ui, -apple-system,
+          BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Open Sans', 'Helvetica Neue', sans-serif; font-size: 52px; font-weight: 300; color: #c1b8aa; text-align: center;"
+        >
+          Welcome {{userName}}
+        </h1>
+        <div class="intro" style="text-align: center;">
+          <p style="margin: 8px 0; font-size: 18px">
+            I am thrilled to help you find your next home with an exceptional experience that is stress-free and enjoyable! In the meantime,
+            check out next steps below.
+          </p>
+          -&nbsp;{{agentName}}
+        </div>
+        <hr class="separator" style="width: 80%; border: 2px solid #333; margin: 24px auto;" />
+        <div class="getting-started-steps" style="text-align: center;">
+          <h2 style="letter-spacing: 2px; color: #5d4f35; font-size: 28px; font-weight: 300; text-align: center;">GETTING STARTED</h2>
+          <div class="step" style="margin-bottom: 24px;">
+            1. I took the initiative to set up a customized search based on the criteria you provided me with. Check them out below.
+          </div>
+          <div class="step" style="margin-bottom: 24px;">2. Star the properties you would love to tour.</div>
+          <div class="step" style="margin-bottom: 24px;">
+            3. I will schedule showings for each property based on an agreed upon date/time.
+          </div>
+        </div>
+        <hr class="separator" style="width: 80%; border: 2px solid #333; margin: 24px auto;" />
+        <div class="recomendations">
+          <h2 class="title" style="letter-spacing: 2px; color: #5d4f35; font-size: 28px; font-weight: 300; text-align: center;">
+            RECOMMENDED PROPERTIES</h2>
+          <div class="apartments" style="text-align: center;">
+            {{#each listings}}
+              <a href="https://rentexclusively.com/apartments{{urlSlug}}" class="apartment" style="width: calc(50% - 22px); display: inline-block; text-align: left; text-decoration: none; color: unset;">
+                <img class="apartment-image" src="{{image}}" alt style="width: 100%;" />
+                <div
+                  class="apartment-features"
+                  style="padding: 12px 12px 0; font-size: 18px; font-weight: 600; display: table-cell; vertical-align: middle;"
+                >
+                  <img src="https://rentexclusively.com/bed.png" alt width="20" />
+                  &ensp;
+                  {{beds}}
+                  <img src="https://rentexclusively.com/shower.png" alt width="20" style="margin-left: 12px;" />
+                  &ensp;
+                  {{baths}}
+                </div>
+                <h3 class="apartment-title" style="margin: 0; font-size: 18px; padding: 12px;">{{name}}</h3>
+                <p class="apartment-price" style="margin: 0; font-size:16px; padding: 0 12px 12px;">{{price}}</p>
+              </a>
+            {{/each}}
+          </div>
+          <br />
+          <br />
+          <center>
+            <a
+              class="view-more"
+              style="background-color: #c1b8aa; padding: 14px 24px; outline: none; border: none; border-radius: 36px;text-decoration: none; color: unset"
+              href="https://rentexclusively.com/apartments?gmasstrack=false"
+            >
+              VIEW MORE PROPERTIES
+            </a>
+            <br />
+            <br />
+          </center>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
