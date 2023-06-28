@@ -1,0 +1,35 @@
+mutation DeleteApartmentImage($where: ApartmentImageWhereUniqueInput!) {
+  deleteApartmentImage(where: $where) {
+    ...ApartmentImageFields
+  }
+}
+
+mutation UpdateApartmentImage($where: ApartmentImageWhereUniqueInput!, $data: ApartmentImageUpdateInput!) {
+  updateApartmentImage(where: $where, data: $data) {
+    ...ApartmentImageFields
+  }
+}
+
+mutation AssignEnquiryToUser($enquiryId: ID!) {
+  assignEnquiryToUser(enquiryId: $enquiryId) {
+    ...EnquiryFields
+  }
+}
+
+mutation RemoveEnquiryFromUser($enquiryId: ID!) {
+  removeEnquiryFromUser(enquiryId: $enquiryId) {
+    ...EnquiryFields
+  }
+}
+
+mutation UpdateImagesOrder($images: [ID!]!) {
+  updateImagesOrder(images: $images)
+}
+
+mutation SendPromotionalEmail($data: PromotionEmailInput!) {
+  sendPromotionalEmail(data: $data)
+}
+
+mutation FollowUpBossPeopleCreated($userIds: [String!]!) {
+  followUpBossPeopleCreated(userIds: $userIds)
+}

@@ -1,0 +1,134 @@
+query FindApartmentImages($where: ApartmentImageWhereInput!, $orderBy: [ApartmentImageOrderByInput!]!) {
+  apartmentImages(where: $where, orderBy: $orderBy) {
+    ...ApartmentImageFields
+  }
+}
+
+query FindFloorPlans($where: FloorPlanWhereInput!, $orderBy: [FloorPlanOrderByInput!]!) {
+  floorPlans(where: $where, orderBy: $orderBy) {
+    ...FloorPlanFields
+  }
+}
+
+query AuthenticatedItem {
+  authenticatedItem {
+    ... on User {
+      ...UserFields
+    }
+  }
+}
+
+query GetEnquiryByID($id: ID!) {
+  enquiries(where: { id: { equals: $id } }) {
+    ...EnquiryFields
+  }
+}
+
+query GetUnassignedEnquiries {
+  getUnAssignedEnquiries {
+    ...EnquiryFields
+  }
+}
+
+query GetMyAssignedEnquiries {
+  getMyAssignedEnquiries {
+    ...EnquiryFields
+  }
+}
+
+query Favorites(
+  $where: FavoriteWhereInput!
+  $orderBy: [FavoriteOrderByInput!]!
+  $imageOrderBy: [ApartmentImageOrderByInput!]!
+  $take: Int
+) {
+  favorites(where: $where, orderBy: $orderBy) {
+    apartment {
+      ...ApartmentFields
+      images(orderBy: $imageOrderBy, take: $take) {
+        id
+        cloudinaryImage {
+          publicUrlTransformed
+        }
+        url
+        default
+        order
+      }
+    }
+  }
+}
+
+query Apartment($where: ApartmentWhereUniqueInput!) {
+  apartment(where: $where) {
+    ...ApartmentFields
+  }
+}
+
+query Searches($where: SearchWhereInput!) {
+  searches(where: $where) {
+    id
+    name
+    url
+  }
+}
+
+query AllApartmentsForFilter($orderBy: [ApartmentOrderByInput!]!, $imagesOrderBy: [ApartmentImageOrderByInput!]!) {
+  apartments(orderBy: $orderBy) {
+    id
+    name
+    description
+    area
+    neighborhood
+    city
+    lat
+    lng
+    minPrice
+    unitsCount
+    images(orderBy: $imagesOrderBy) {
+      id
+      cloudinaryImage {
+        id
+        publicUrlTransformed
+      }
+      url
+    }
+    amenities {
+      id
+      displayName
+    }
+  }
+}
+
+query Amenities($orderBy: [AmenityOrderByInput!]!) {
+  amenities(orderBy: $orderBy) {
+    id
+    name
+  }
+}
+
+query UserApartmentPromotionalEmailApartmentResults($aptWhere: ApartmentWhereInput!, $take: Int) {
+  apartments(where: $aptWhere, take: $take) {
+    id
+    name
+    area
+    lat
+    lng
+    unitsCount
+    minPrice
+    images(orderBy: { order: asc }, take: 1) {
+      id
+      cloudinaryImage {
+        id
+        publicUrlTransformed
+      }
+      url
+      order
+    }
+  }
+}
+
+query Users {
+  users {
+    ...UserFields
+  }
+}
